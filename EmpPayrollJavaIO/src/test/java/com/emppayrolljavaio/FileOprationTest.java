@@ -3,11 +3,8 @@ package com.emppayrolljavaio;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.stream.IntStream;
-
 import org.junit.Test;
 
 public class FileOprationTest {
@@ -23,7 +20,6 @@ public class FileOprationTest {
 		Path filePath = Paths.get(HOME);
 		assertTrue(Files.exists(filePath));
 		System.out.println(filePath);
-
 		/**
 		 * Delete file and check file does not exist
 		 */

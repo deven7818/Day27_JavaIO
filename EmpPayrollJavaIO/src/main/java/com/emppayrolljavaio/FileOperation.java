@@ -11,7 +11,6 @@ public class FileOperation {
 	 */
 	public static boolean deletFile(File contentToDelete) {
 		File[] content  = contentToDelete.listFiles();
-		
 		/**
 		 * if content is not null then delete the file
 		 */

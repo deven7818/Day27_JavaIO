@@ -17,7 +17,6 @@ public class EmployeePayrollData {
 		this.name = name;
 		this.salary = salary;
 	}
-	
 	/**
 	 * getter and setter method
 	 */
