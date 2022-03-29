@@ -9,6 +9,7 @@ import java.util.Scanner;
  * 2. demonstrate File Operations like 1.Check File Exists, 2.Delete File and Check File Not Exist,
  *    3.Create Directory, 4.Create Empty File, 5.List Files, Directories as well as Files with Extension
  * 3. Watch Service to watch particular directory along with all Files and Sub Directories
+ * 4. Employee Payroll Service to print the Employee Payrolls
  * 
  * @author Asus
  *
@@ -59,7 +60,7 @@ public class EmployeePayrollService {
 		/**
 		 * called writeEmployeePayrollData to write
 		 */
-		employeePayrollService.writeEmployeePayrollData();
+		employeePayrollService.writeEmployeePayrollData(IOService.CONSOLE_IO);
 	}
 
 	/**
@@ -80,7 +81,22 @@ public class EmployeePayrollService {
 	/**
 	 * Method to print employee payroll list
 	 */
-	private void writeEmployeePayrollData() {
-		System.out.println("Writing Employee payroll data to console " + employeePayrollDatas);
+	public void writeEmployeePayrollData(IOService ioService) {
+		if(ioService.equals(IOService.CONSOLE_IO))
+			System.out.println("Writing Employee payroll data to console " + employeePayrollDatas);
+		else if(ioService.equals(IOService.FILE_IO))
+			new EmployeePayrollFileIOService().writeData(employeePayrollDatas);
+	}
+	
+	/**
+	 * Method to countEntries - Using File IO Count Number of Entries in the File
+	 * 
+	 * @param ioService
+	 * @return number of entries
+	 */
+	public long countEntries(IOService ioService) {
+		if (ioService.equals(IOService.FILE_IO))
+			return new EmployeePayrollFileIOService().countEntries();
+		return 0;
 	}
 }
